@@ -64,9 +64,9 @@
 
 ;; Bootstrap
 (setq org-hide-leading-stars t
-                org-hide-leading-stars-before-indent-mode t
-                org-fontify-done-headline t
-                org-fontify-quote-and-verse-blocks t
+      org-hide-leading-stars-before-indent-mode t
+      org-fontify-done-headline t
+      org-fontify-quote-and-verse-blocks t
       org-fontify-whole-heading-line t)
 
 (add-hook 'org-font-lock-set-keywords-hook #'doom-org-custom-fontification)

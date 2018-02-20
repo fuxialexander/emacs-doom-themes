@@ -1,36 +1,36 @@
-;;; doom-solarizedlight-theme.el --- inspired by Atom One Dark
+;;; doom-solarized-light-theme.el --- inspired by Atom One Dark
 (require 'doom-themes)
 
 ;;
-(defgroup doom-solarizedlight-theme nil
+(defgroup doom-solarized-light-theme nil
   "Options for doom-themes"
   :group 'doom-themes)
 
-(defcustom doom-one-brighter-modeline nil
+(defcustom doom-solarized-light-brighter-modeline nil
   "If non-nil, more vivid colors will be used to style the mode-line."
-  :group 'doom-solarizedlight-theme
+  :group 'doom-solarized-light-theme
   :type 'boolean)
 
-(defcustom doom-one-brighter-comments nil
+(defcustom doom-solarized-light-brighter-comments nil
   "If non-nil, comments will be highlighted in more vivid colors."
-  :group 'doom-solarizedlight-theme
+  :group 'doom-solarized-light-theme
   :type 'boolean)
 
-(defcustom doom-one-comment-bg doom-one-brighter-comments
+(defcustom doom-solarized-light-comment-bg doom-solarized-light-brighter-comments
   "If non-nil, comments will have a subtle, darker background. Enhancing their
 legibility."
-  :group 'doom-solarizedlight-theme
+  :group 'doom-solarized-light-theme
   :type 'boolean)
 
-(defcustom doom-one-padded-modeline nil
+(defcustom doom-solarized-light-padded-modeline nil
   "If non-nil, adds a 4px padding to the mode-line. Can be an integer to
 determine the exact padding."
-  :group 'doom-solarizedlight-theme
+  :group 'doom-solarized-light-theme
   :type '(or integer boolean))
 
 ;;
-(def-doom-theme doom-solarizedlight
-  "A dark theme inspired by solarized light"
+(def-doom-theme doom-solarized-light
+  "A light theme inspired by Solarized light"
 
   ;; name        default   256       16
   ((bg         '("#FCF8ED" nil       nil            ))
@@ -65,8 +65,8 @@ determine the exact padding."
    (vertical-bar   base3)
    (selection      dark-blue)
    (builtin        magenta)
-   (comments       (if doom-one-brighter-comments dark-cyan base5))
-   (doc-comments   (doom-blend dark-cyan fg 0.8))
+   (comments       (if doom-solarized-light-brighter-comments dark-cyan base5))
+   (doc-comments   (doom-lighten (if doom-solarized-light-brighter-comments dark-cyan base5) 0.25))
    (constants      violet)
    (functions      magenta)
    (keywords       blue)
@@ -86,10 +86,10 @@ determine the exact padding."
 
    ;; custom categories
    (hidden     `(,(car bg) "black" "black"))
-   (-modeline-bright doom-one-brighter-modeline)
+   (-modeline-bright doom-solarized-light-brighter-modeline)
    (-modeline-pad
-    (when doom-one-padded-modeline
-      (if (integerp doom-one-padded-modeline) doom-one-padded-modeline 4)))
+    (when doom-solarized-light-padded-modeline
+      (if (integerp doom-solarized-light-padded-modeline) doom-solarized-light-padded-modeline 4)))
 
    (modeline-fg     nil)
    (modeline-fg-alt base5)
@@ -118,10 +118,14 @@ determine the exact padding."
    (org-block-end-line :background (doom-blend yellow bg 0.08))
    (font-lock-comment-face
     :foreground comments
-    :background (if doom-one-comment-bg (doom-lighten bg 0.05)))
+    :background (if doom-solarized-light-comment-bg (doom-lighten bg 0.05)))
    (font-lock-doc-face
     :inherit 'font-lock-comment-face
     :foreground doc-comments)
+   ((font-lock-type-face &override) :slant 'italic)
+   ((font-lock-builtin-face &override) :slant 'italic)
+   ((font-lock-function-name-face &override) :weight 'semi-bold)
+   ((font-lock-keyword-face &override) :weight 'semi-bold )
 
    (doom-modeline-bar :background (if -modeline-bright modeline-bg highlight))
 
@@ -163,4 +167,4 @@ determine the exact padding."
   ;; ()
   )
 
-;;; doom-solarizedlight-theme.el ends here
+;;; doom-solarized-light-theme.el ends here
