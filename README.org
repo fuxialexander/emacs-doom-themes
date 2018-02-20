@@ -1,4 +1,0 @@
-#+TITLE: README
-* Additional themes
-- [X] doom-solarizedlight
-- [-] doom-nord

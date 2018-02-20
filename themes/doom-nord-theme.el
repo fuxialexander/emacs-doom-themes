@@ -30,7 +30,7 @@ determine the exact padding."
 
 ;;
 (def-doom-theme doom-nord
-  "A dark theme inspired by Atom One Dark"
+  "A dark theme inspired by Emacs Nord"
 
   ;; name        default   256       16
   ((bg         '("#2E3440" nil       nil            ))

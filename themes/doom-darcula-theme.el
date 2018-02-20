@@ -30,7 +30,7 @@ determine the exact padding."
 
 ;;
 (def-doom-theme doom-darcula
-  "A dark theme inspired by Atom One Dark"
+  "A dark theme inspired by Emacs Darcula"
 
   ;; name        default   256       16
   ((bg         '("#1E2029" nil       nil            ))
