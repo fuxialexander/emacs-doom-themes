@@ -504,15 +504,15 @@
     ;; (indent-guide-face :inherit 'unspecified :background (doom-blend fg bg 0.1))
 
     ;; tldr
-    (tldr-command-itself                            :foreground bg :background green :bold bold)
+    (tldr-command-itself                            :foreground bg :background green :weight 'semi-bold)
     (tldr-title                                     :foreground yellow :bold t :height 1.4)
-    (tldr-description :family "SF Compact Display"  :foreground fg :bold bold)
-    (tldr-introduction :family "SF Compact Display" :foreground (doom-blend blue bg 0.8) :bold bold)
-    (tldr-code-block                                :foreground green :background region :bold bold)
+    (tldr-description :font "SF Compact Display"  :foreground fg :weight 'semi-bold)
+    (tldr-introduction :font "SF Compact Display" :foreground (doom-blend blue bg 0.8) :weight 'semi-bold)
+    (tldr-code-block                                :foreground green :background region :weight 'semi-bold)
     (tldr-command-argument                          :foreground fg :background region )
 
     ;; helpful
-    (helpful-heading   :family "SF Compact Display" :foreground yellow :bold t :height 1.4)
+    (helpful-heading   :font "SF Compact Display" :foreground yellow :bold t :height 1.4)
 
     ;; ivy
     (ivy-current-match :background region :distant-foreground fg)
