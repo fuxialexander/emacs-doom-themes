@@ -368,6 +368,7 @@
     (flycheck-error     :underline `(:style wave :color ,red))
     (flycheck-warning   :underline `(:style wave :color ,yellow))
     (flycheck-info      :underline `(:style wave :color ,green))
+    (flycheck-posframe-face :inherit nil :fg red :bg bg-alt :font "SF Compact Display")
 
     ;; flymake
     (flymake-warnline :background bg :underline `(:style wave :color ,orange))
