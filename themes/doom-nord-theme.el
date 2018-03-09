@@ -151,6 +151,15 @@ determine the exact padding."
 
    ;; org-mode
    (org-hide :foreground hidden)
+   (org-level-1  :font "SF Compact Display" :foreground yellow                   :weight 'semi-bold :height 1.6)
+   (org-level-2  :font "SF Compact Display" :foreground red                      :weight 'semi-bold :height 1.4)
+   (org-level-3  :font "SF Compact Display" :foreground blue                     :weight 'semi-bold :height 1.4)
+   (org-level-4  :font "SF Compact Display" :foreground violet                   :weight 'semi-bold :height 1.3)
+   (org-level-5  :font "SF Compact Display" :foreground (doom-darken blue 0.2)   :weight 'semi-bold :height 1.3)
+   (org-level-6  :font "SF Compact Display" :foreground (doom-darken violet 0.2) :weight 'semi-bold :height 1.2)
+   (org-level-7  :font "SF Compact Display" :foreground (doom-darken yellow 0.2) :weight 'semi-bold :height 1.2)
+   (org-level-8  :font "SF Compact Display" :foreground (doom-darken red 0.2)    :weight 'semi-bold :height 1.2)
+
    (solaire-org-hide-face :foreground hidden))
 
 
