@@ -527,6 +527,7 @@
     (ivy-confirm-face :foreground success)
     (ivy-match-required-face :foreground error)
     (ivy-virtual :foreground fg)
+    (ivy-posframe :foreground fg :background bg)
 
     ;; jabber
     (jabber-activity-face          :foreground red   :bold bold)
