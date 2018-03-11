@@ -151,6 +151,10 @@ determine the exact padding."
 
    ;; org-mode
    (org-hide :foreground hidden)
+   (org-block-begin-line      :foreground comments :background base2)
+   (org-block-end-line        :inherit 'org-block-begin-line)
+   (org-block-background      :background base1)
+   (org-block                 :background base1)
    (solaire-org-hide-face :foreground hidden))
 
 

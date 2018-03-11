@@ -151,6 +151,10 @@ determine the exact padding."
 
    ;; org-mode
    (org-hide :foreground hidden)
+   (org-block-begin-line      :foreground comments :background base2)
+   (org-block-end-line        :inherit 'org-block-begin-line)
+   (org-block-background      :background base1)
+   (org-block                 :background base1)
    (org-level-1  :font "SF Compact Display" :foreground yellow                   :weight 'semi-bold :height 1.6)
    (org-level-2  :font "SF Compact Display" :foreground red                      :weight 'semi-bold :height 1.4)
    (org-level-3  :font "SF Compact Display" :foreground blue                     :weight 'semi-bold :height 1.4)
