@@ -150,7 +150,8 @@ determine the exact padding."
    (markdown-code-face :background (doom-lighten base3 0.05))
 
    ;; org-mode
-   (org-hide :foreground hidden)
+   (solaire-org-hide-face  :foreground bg-alt :background bg-alt)
+   (org-hide :foreground bg :background bg)
    (org-block-begin-line      :foreground comments :background base2)
    (org-block-end-line        :inherit 'org-block-begin-line)
    (org-block-background      :background (doom-darken base1 0.2))
@@ -162,9 +163,7 @@ determine the exact padding."
    (org-level-5  :font "SF Compact Display" :foreground (doom-darken blue 0.2)   :weight 'semi-bold :height 1.3)
    (org-level-6  :font "SF Compact Display" :foreground (doom-darken violet 0.2) :weight 'semi-bold :height 1.2)
    (org-level-7  :font "SF Compact Display" :foreground (doom-darken yellow 0.2) :weight 'semi-bold :height 1.2)
-   (org-level-8  :font "SF Compact Display" :foreground (doom-darken red 0.2)    :weight 'semi-bold :height 1.2)
-
-   (solaire-org-hide-face :foreground hidden))
+   (org-level-8  :font "SF Compact Display" :foreground (doom-darken red 0.2)    :weight 'semi-bold :height 1.2))
 
 
   ;; --- extra variables ---------------------
