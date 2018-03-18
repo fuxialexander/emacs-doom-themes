@@ -33,19 +33,19 @@ determine the exact padding."
   "A dark theme inspired by Atom One Dark"
 
   ;; name        default   256       16
-  ((bg         '("#2E3440" nil       nil            ))
-   (bg-alt     '("#3B4253" nil       nil            ))
-   (base0      '("#2E3440" "black"   "black"        ))
-   (base1      '("#3B4253" "#1e1e1e" "brightblack"  ))
-   (base2      '("#434C5F" "#2e2e2e" "brightblack"  ))
-   (base3      '("#4C566B" "#262626" "brightblack"  ))
-   (base4      '("#545F76" "#3f3f3f" "brightblack"  ))
-   (base5      '("#67748F" "#525252" "brightblack"  ))
-   (base6      '("#D8DEE9" "#6b6b6b" "brightblack"  ))
-   (base7      '("#E5E9F0" "#979797" "brightblack"  ))
-   (base8      '("#ECEFF4" "#dfdfdf" "white"        ))
-   (fg         '("#E5E9F0" "#bfbfbf" "brightwhite"  ))
-   (fg-alt     '("#ECEFF4" "#2d2d2d" "white"        ))
+  ((bg         '("#3B4253" nil       nil            ))
+   (bg-alt     '("#2E3440" nil       nil            ))
+   (base0      '("#1A1D25" "black"   "black"        ))
+   (base1      '("#282C39" "#1e1e1e" "brightblack"  ))
+   (base2      '("#383F51" "#2e2e2e" "brightblack"  ))
+   (base3      '("#414A5D" "#262626" "brightblack"  ))
+   (base4      '("#495368" "#3f3f3f" "brightblack"  ))
+   (base5      '("#5C6881" "#525252" "brightblack"  ))
+   (base6      '("#6B7996" "#6b6b6b" "brightblack"  ))
+   (base7      '("#7D8DAE" "#979797" "brightblack"  ))
+   (base8      '("#91A4CB" "#dfdfdf" "white"        ))
+   (fg         '("#ECEFF4" "#2d2d2d" "white"        ))
+   (fg-alt     '("#E5E9F0" "#bfbfbf" "brightwhite"  ))
 
    (grey       base4)
    (red        '("#C16069" "#ff6655" "red"          ))
@@ -95,14 +95,14 @@ determine the exact padding."
 
    (modeline-bg
     (if -modeline-bright
-        (doom-darken blue 0.475)
-      `(,(doom-darken (car bg-alt) 0.15) ,@(cdr base0))))
+        (doom-darken blue 0.55)
+      `(,(doom-darken (car bg) 0.15) ,@(cdr base0))))
    (modeline-bg-l
     (if -modeline-bright
-        (doom-darken blue 0.45)
-      `(,(doom-darken (car bg-alt) 0.1) ,@(cdr base0))))
-   (modeline-bg-inactive   (doom-darken bg-alt 0.1))
-   (modeline-bg-inactive-l `(,(car bg-alt) ,@(cdr base1))))
+        (doom-darken blue 0.55)
+      `(,(doom-darken (car bg) 0.1) ,@(cdr base0))))
+   (modeline-bg-inactive   (doom-darken bg 0.1))
+   (modeline-bg-inactive-l `(,(car bg) ,@(cdr base1))))
 
 
   ;; --- extra faces ------------------------
@@ -138,6 +138,10 @@ determine the exact padding."
     :background modeline-bg-inactive-l
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
 
+   ;; ediff
+   (ediff-fine-diff-A    :background (doom-darken violet 0.4) :weight 'bold)
+   (ediff-current-diff-A :background (doom-darken base0 0.25))
+
    ;; --- major-mode faces -------------------
    ;; css-mode / scss-mode
    (css-proprietary-property :foreground orange)
@@ -150,20 +154,8 @@ determine the exact padding."
    (markdown-code-face :background (doom-lighten base3 0.05))
 
    ;; org-mode
-   (solaire-org-hide-face  :foreground bg-alt :background bg-alt)
-   (org-hide :foreground bg :background bg)
-   (org-block-begin-line      :foreground comments :background base2)
-   (org-block-end-line        :inherit 'org-block-begin-line)
-   (org-block-background      :background (doom-darken base1 0.2))
-   (org-block                 :background (doom-darken base1 0.2))
-   (org-level-1  :font "SF Compact Display" :foreground yellow                   :weight 'semi-bold :height 1.6)
-   (org-level-2  :font "SF Compact Display" :foreground red                      :weight 'semi-bold :height 1.4)
-   (org-level-3  :font "SF Compact Display" :foreground blue                     :weight 'semi-bold :height 1.4)
-   (org-level-4  :font "SF Compact Display" :foreground violet                   :weight 'semi-bold :height 1.3)
-   (org-level-5  :font "SF Compact Display" :foreground (doom-darken blue 0.2)   :weight 'semi-bold :height 1.3)
-   (org-level-6  :font "SF Compact Display" :foreground (doom-darken violet 0.2) :weight 'semi-bold :height 1.2)
-   (org-level-7  :font "SF Compact Display" :foreground (doom-darken yellow 0.2) :weight 'semi-bold :height 1.2)
-   (org-level-8  :font "SF Compact Display" :foreground (doom-darken red 0.2)    :weight 'semi-bold :height 1.2))
+   (org-hide :foreground hidden)
+   (solaire-org-hide-face :foreground hidden))
 
 
   ;; --- extra variables ---------------------
