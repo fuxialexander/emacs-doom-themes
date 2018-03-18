@@ -895,15 +895,6 @@
     (notmuch-wash-cited-text                 :foreground base4)
     (notmuch-wash-toggle-button              :foreground fg)
 
-    ;; outline
-    (outline-1         :inherit 'org-level-1)
-    (outline-2         :inherit 'org-level-2)
-    (outline-3         :inherit 'org-level-3)
-    (outline-4         :inherit 'org-level-4)
-    (outline-5         :inherit 'org-level-5)
-    (outline-6         :inherit 'org-level-6)
-    (outline-7         :inherit 'org-level-7)
-    (outline-8         :inherit 'org-level-8)
 
     ;; calfw
     (cfw:face-title               :foreground blue                    :bold bold :height 2.0 :inherit 'variable-pitch)
@@ -962,14 +953,25 @@
     (org-habit-overdue-future-face :bold bold :background (doom-blend red bg-alt 0.5)    :foreground (doom-blend red bg-alt 0.5))
     (org-ellipsis :bold bold :background nil :foreground grey)
 
-    (org-level-1  :font "SF Compact Display" :foreground blue   :weight 'semi-bold :height 1.6)
-    (org-level-2  :font "SF Compact Display" :foreground violet :weight 'semi-bold :height 1.4)
-    (org-level-3  :font "SF Compact Display" :foreground yellow :weight 'semi-bold :height 1.4)
-    (org-level-4  :font "SF Compact Display" :foreground red    :weight 'semi-bold :height 1.3)
-    (org-level-5  :font "SF Compact Display" :foreground blue   :weight 'semi-bold :height 1.3)
-    (org-level-6  :font "SF Compact Display" :foreground violet :weight 'semi-bold :height 1.2)
-    (org-level-7  :font "SF Compact Display" :foreground yellow :weight 'semi-bold :height 1.2)
-    (org-level-8  :font "SF Compact Display" :foreground red    :weight 'semi-bold :height 1.2)
+    ;; outline
+
+    (outline-1  :font "SF Compact Display" :foreground blue   :weight 'semi-bold :height 1.6)
+    (outline-2  :font "SF Compact Display" :foreground violet :weight 'semi-bold :height 1.4)
+    (outline-3  :font "SF Compact Display" :foreground yellow :weight 'semi-bold :height 1.4)
+    (outline-4  :font "SF Compact Display" :foreground red    :weight 'semi-bold :height 1.3)
+    (outline-5  :font "SF Compact Display" :foreground blue   :weight 'semi-bold :height 1.3)
+    (outline-6  :font "SF Compact Display" :foreground violet :weight 'semi-bold :height 1.2)
+    (outline-7  :font "SF Compact Display" :foreground yellow :weight 'semi-bold :height 1.2)
+    (outline-8  :font "SF Compact Display" :foreground red    :weight 'semi-bold :height 1.2)
+
+    (org-level-1         :inherit 'outline-1)
+    (org-level-2         :inherit 'outline-2)
+    (org-level-3         :inherit 'outline-3)
+    (org-level-4         :inherit 'outline-4)
+    (org-level-5         :inherit 'outline-5)
+    (org-level-6         :inherit 'outline-6)
+    (org-level-7         :inherit 'outline-7)
+    (org-level-8         :inherit 'outline-8)
 
     (org-ref-cite-face         :foreground yellow :weight 'light :underline t)
     (org-tag :foreground green :weight 'light)
