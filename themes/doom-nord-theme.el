@@ -75,7 +75,7 @@ determine the exact padding."
    (strings        green)
    (variables      (doom-lighten magenta 0.5))
    (numbers        magenta)
-   (region         base2)
+   (region         base3)
    (error          red)
    (warning        yellow)
    (success        green)
