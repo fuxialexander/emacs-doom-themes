@@ -530,7 +530,7 @@
     (ivy-confirm-face :foreground success)
     (ivy-match-required-face :foreground error)
     (ivy-virtual :foreground fg)
-    (ivy-posframe :foreground fg :background bg)
+    (ivy-posframe :foreground fg-alt :background bg-alt)
 
     ;; jabber
     (jabber-activity-face          :foreground red   :bold bold)
@@ -1009,6 +1009,7 @@
     (rpm-spec-ghost-face        :foreground comments)
     (rpm-spec-section-face      :foreground magenta)
 
+    (aw-leading-char-face :foreground blue)
     ;; typescript-mode
     ((ts-object-property &inherit js2-object-property))
 
