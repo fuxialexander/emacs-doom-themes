@@ -95,11 +95,11 @@ determine the exact padding."
 
    (modeline-bg
     (if -modeline-bright
-        (doom-darken blue 0.65)
+        base3
       `(,(doom-darken (car bg) 0.15) ,@(cdr base0))))
    (modeline-bg-l
     (if -modeline-bright
-        (doom-darken blue 0.65)
+        base3
       `(,(doom-darken (car bg) 0.1) ,@(cdr base0))))
    (modeline-bg-inactive   (doom-darken bg 0.1))
    (modeline-bg-inactive-l `(,(car bg) ,@(cdr base1))))
@@ -149,9 +149,10 @@ determine the exact padding."
    (markdown-header-face :inherit 'bold :foreground red)
    (markdown-code-face :background (doom-lighten base3 0.05))
 
-   (ivy-posframe :background (doom-darken bg-alt 0.1))
    ;; org-mode
    (org-hide :foreground hidden)
+   (org-block :background base2)
+   (org-block-begin-line :background base2 :foreground comments)
    (solaire-org-hide-face :foreground hidden))
 
 
