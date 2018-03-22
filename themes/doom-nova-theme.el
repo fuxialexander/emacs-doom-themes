@@ -127,7 +127,17 @@ determine the exact padding."
    (helm-source-header :foreground base0 :background base6)
 
    ;; company
-   (company-tooltip-selection  :background selection :foreground dark-grey)
+   (company-tooltip            :inherit 'tooltip :background (doom-lighten bg 0.075))
+   (company-tooltip-selection  :background base5 :foreground base8 :weight 'bold)
+   (company-tooltip-common     :foreground cyan :distant-foreground cyan :weight 'bold)
+   (company-tooltip-search     :background highlight :foreground base1 :weight 'ultra-bold)
+   (company-tooltip-search-selection :background highlight :foreground base1 :weight 'ultra-bold)
+   (company-tooltip-mouse      :background base6 :foreground bg :distant-foreground fg)
+
+   ;; ediff
+   (ediff-fine-diff-A    :background base3 :weight 'bold)
+   (ediff-current-diff-A :inherit 'hl-line)
+   (ediff-even-diff-A    :background base3)
 
    ;; org-mode
    (org-level-1
