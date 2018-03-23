@@ -1010,7 +1010,7 @@
     (rpm-spec-ghost-face        :foreground comments)
     (rpm-spec-section-face      :foreground magenta)
 
-    (aw-leading-char-face :foreground blue)
+    (aw-leading-char-face :foreground base0 :background base7 :weight 'ultra-bold)
     ;; typescript-mode
     ((ts-object-property &inherit js2-object-property))
 

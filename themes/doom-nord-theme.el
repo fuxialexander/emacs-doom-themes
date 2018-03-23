@@ -28,9 +28,15 @@ determine the exact padding."
   :group 'doom-nord-theme
   :type '(or integer boolean))
 
+(defcustom doom-nord-region-highlight t
+  "Determines the selection highlight style. Can be 'frost, 'snowstorm or t
+(default)."
+  :group 'doom-nord-theme
+  :type 'symbol)
+
 ;;
 (def-doom-theme doom-nord
-  "A dark theme inspired by Atom One Dark"
+  "A dark theme inspired by Nord."
 
   ;; name        default   256       16
   ((bg         '("#3B4252" nil       nil            ))
@@ -77,15 +83,6 @@ determine the exact padding."
    (variables      (doom-lighten magenta 0.5))
    (numbers        magenta)
    (region         base4)
-   (nord-region-bg
-    (if (string= doom-nord-region-highlight "frost") teal
-      (if (string= doom-nord-region-highlight "snowstorm")
-          base7
-        base4)))
-   (nord-region-fg
-    (if (or
-         (string= doom-nord-region-highlight "frost")
-         (string= doom-nord-region-highlight "snowstorm")) bg-alt nil))
    (error          red)
    (warning        yellow)
    (success        green)
@@ -155,10 +152,11 @@ determine the exact padding."
 
    ;; Nord highligh
    ((region &override)
-    :background nord-region-bg
-    :foreground nord-region-fg
-    :distant-foreground (doom-darken fg 0.2))
+    :foreground
+    (when (memq doom-nord-region-highlight '(frost snowstorm))
+      bg-alt))
 
+   ((aw-leading-char-face &override) :background teal)
    ;; ediff
    (ediff-fine-diff-A    :background (doom-darken violet 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-darken base0 0.25))
@@ -182,10 +180,7 @@ determine the exact padding."
   ;; --- extra variables ---------------------
   ;; ()
 
-  (defcustom doom-nord-region-highlight nil
-    "Determines the selection highligh style."
-    :group 'doom-nord-theme
-    :type 'string)
+
   )
 
 ;;; doom-nord-theme.el ends here
