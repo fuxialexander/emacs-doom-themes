@@ -745,6 +745,7 @@
     ;; vimish-fold
     (vimish-fold-overlay :inherit 'font-lock-comment-face :background base0 :weight 'light)
     (vimish-fold-fringe  :foreground magenta)
+    (+doom-folded-face :foreground base6 :background base4 :weight 'light)
 
     ;; volatile-highlights
     (vhl/default-face :background grey)
@@ -996,6 +997,10 @@
     (org-special-keyword       :foreground grey)
     (org-property-value        :foreground grey)
     (org-checkbox :inherit 'org-todo)
+    (org-table :background base3)
+    (org-column :inherit 'org-table)
+    (org-column-title :inherit 'org-column :weight 'bold)
+    (org-agenda-column-dateline :inherit 'org-column)
     (org-checkbox-statistics-todo :inherit 'org-todo)
     (org-checkbox-statistics-done :inherit 'org-done)
 
