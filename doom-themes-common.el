@@ -367,6 +367,9 @@
     (custom-state             :foreground green :background (doom-blend green bg 0.2))
     (custom-changed           :foreground blue :background bg)
 
+    ;; keycast
+    (keycast-key              :foreground blue :weight 'bold)
+    (keycast-command          :foreground teal :weight 'bold)
 
     ;; flycheck
     (flycheck-error     :underline `(:style wave :color ,red))
