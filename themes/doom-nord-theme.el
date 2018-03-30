@@ -1,4 +1,4 @@
-;;; doom-nord-theme.el --- inspired by Atom One Dark
+;;; doom-nord-theme.el --- inspired by Nord
 (require 'doom-themes)
 
 ;;
@@ -82,7 +82,10 @@ determine the exact padding."
    (strings        green)
    (variables      (doom-lighten magenta 0.5))
    (numbers        magenta)
-   (region         base4)
+   (region         (pcase doom-nord-region-highlight
+                     (`frost teal)
+                     (`snowstorm base7)
+                     (_ base4)))
    (error          red)
    (warning        yellow)
    (success        green)
@@ -113,14 +116,17 @@ determine the exact padding."
 
 
   ;; --- extra faces ------------------------
-  ((elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
+  (((region &override)
+    :foreground
+    (when (memq doom-nord-region-highlight '(frost snowstorm))
+      bg-alt))
 
    ((line-number &override) :foreground (doom-lighten 'base5 0.2))
    ((line-number-current-line &override) :foreground base7)
    ((paren-face-match &override) :foreground red :background base3 :weight 'ultra-bold)
    ((paren-face-mismatch &override) :foreground base3 :background red :weight 'ultra-bold)
    ((vimish-fold-overlay &override) :inherit 'font-lock-comment-face :background base3 :weight 'light)
-   ((vimish-fold-fringe &override)  :foreground teal)
+   ((vimish-fold-fringe &override) :foreground teal)
 
    (font-lock-comment-face
     :foreground comments
@@ -150,22 +156,20 @@ determine the exact padding."
     :background modeline-bg-inactive-l
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
 
-   ;; Nord highligh
-   ((region &override)
-    :foreground
-    (when (memq doom-nord-region-highlight '(frost snowstorm))
-      bg-alt))
-
-   ((aw-leading-char-face &override) :background teal)
    ;; ediff
-   (ediff-fine-diff-A    :background (doom-darken violet 0.4) :weight 'bold)
+   (ediff-fine-diff-A :background (doom-darken violet 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-darken base0 0.25))
+
+   ;; elscreen
+   (elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
+
+   (ivy-current-match :background base4 :distant-foreground nil)
 
    ;; --- major-mode faces -------------------
    ;; css-mode / scss-mode
    (css-proprietary-property :foreground orange)
-   (css-property             :foreground green)
-   (css-selector             :foreground blue)
+   (css-property :foreground green)
+   (css-selector :foreground blue)
 
    ;; markdown-mode
    (markdown-markup-face :foreground base5)

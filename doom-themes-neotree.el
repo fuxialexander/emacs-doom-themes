@@ -231,7 +231,7 @@ pane and are highlighted incorrectly."
         (faces '(neo-root-dir-face)))
     (when doom-neotree-enable-variable-pitch
       (push 'variable-pitch faces))
-    (if (display-graphic-p)
+    (when (display-graphic-p)
         (insert
          (concat (propertize " " 'face `(:inherit (,@faces)))
                  (all-the-icons-octicon "repo"

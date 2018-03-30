@@ -515,11 +515,11 @@
     ((indent-guide-face &inherit highlight-indentation-face))
 
     ;; ivy
-    (ivy-current-match :background region :distant-foreground fg)
-    (ivy-minibuffer-match-face-1 :weight 'bold :foreground (doom-blend fg bg 0.5))
-    (ivy-minibuffer-match-face-2 :weight 'bold :foreground magenta)
-    (ivy-minibuffer-match-face-3 :weight 'bold :foreground green)
-    (ivy-minibuffer-match-face-4 :weight 'bold :foreground yellow)
+    (ivy-current-match :background region :distant-foreground nil)
+    (ivy-minibuffer-match-face-1 :background nil :foreground (doom-lighten grey 0.4) :weight 'light)
+    (ivy-minibuffer-match-face-2 :inherit 'ivy-minibuffer-match-face-1 :foreground magenta :background (doom-blend magenta base3 0.1) :weight 'semi-bold)
+    (ivy-minibuffer-match-face-3 :inherit 'ivy-minibuffer-match-face-1 :foreground green :background (doom-blend green base3 0.1) :weight 'semi-bold)
+    (ivy-minibuffer-match-face-4 :inherit 'ivy-minibuffer-match-face-1 :foreground yellow :background (doom-blend yellow base3 0.1) :weight 'semi-bold)
 
     (ivy-minibuffer-match-highlight :foreground violet)
     (ivy-highlight-face :foreground violet)
@@ -1011,6 +1011,8 @@
     (org-checkbox-statistics-todo :inherit 'org-todo)
     (org-checkbox-statistics-done :inherit 'org-done)
 
+    ;; pdf-tools
+    ;; (pdf-view-midnight-colors :foreground fg :background bg)
     ;; rpm-spec-mode
     (rpm-spec-macro-face        :foreground yellow)
     (rpm-spec-var-face          :foreground violet)
