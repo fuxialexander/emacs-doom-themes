@@ -1,4 +1,4 @@
-;;; doom-nord-theme.el --- inspired by Atom One Dark
+;;; doom-nord-theme.el --- inspired by Nord
 (require 'doom-themes)
 
 ;;
@@ -28,14 +28,15 @@ determine the exact padding."
   :group 'doom-nord-theme
   :type '(or integer boolean))
 
-(defcustom doom-nord-region-highlight nil
-    "Determines the selection highligh style."
-    :group 'doom-nord-theme
-    :type 'string)
+(defcustom doom-nord-region-highlight t
+  "Determines the selection highlight style. Can be 'frost, 'snowstorm or t
+(default)."
+  :group 'doom-nord-theme
+  :type 'symbol)
 
 ;;
 (def-doom-theme doom-nord
-  "A dark theme inspired by Atom One Dark"
+  "A dark theme inspired by Nord."
 
   ;; name        default   256       16
   ((bg         '("#3B4252" nil       nil            ))
@@ -81,7 +82,10 @@ determine the exact padding."
    (strings        green)
    (variables      (doom-lighten magenta 0.5))
    (numbers        magenta)
-   (region         base4)
+   (region         (pcase doom-nord-region-highlight
+                     (`frost teal)
+                     (`snowstorm base7)
+                     (_ base4)))
    (error          red)
    (warning        yellow)
    (success        green)
@@ -112,7 +116,10 @@ determine the exact padding."
 
 
   ;; --- extra faces ------------------------
-  ((elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
+  (((region &override)
+    :foreground
+    (when (memq doom-nord-region-highlight '(frost snowstorm))
+      bg-alt))
 
    ((line-number &override) :foreground (doom-lighten 'base5 0.2))
    ((line-number-current-line &override) :foreground base7)
@@ -149,22 +156,12 @@ determine the exact padding."
     :background modeline-bg-inactive-l
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
 
-   ;; Nord highligh
-   ((region &override)
-    :background (if (string= doom-nord-region-highlight "frost") teal
-      (if (string= doom-nord-region-highlight "snowstorm")
-          base7
-        base4))
-    :foreground (if (or
-                     (string= doom-nord-region-highlight "frost")
-                     (string= doom-nord-region-highlight "snowstorm"))
-                    bg-alt
-                  nil)
-    :distant-foreground (doom-darken fg 0.2))
-
    ;; ediff
    (ediff-fine-diff-A    :background (doom-darken violet 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-darken base0 0.25))
+
+   ;; elscreen
+   (elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
 
    ;; --- major-mode faces -------------------
    ;; css-mode / scss-mode
