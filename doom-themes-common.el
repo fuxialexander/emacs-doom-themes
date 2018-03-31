@@ -1000,7 +1000,7 @@
     (org-scheduled-custom      :foreground bg :background green :weight 'bold :font "PragmataPro")
     (org-date                  :foreground bg)
     (org-date-custom           :background base6 :weight 'bold :font "PragmataPro")
-    (org-headline-done         :foreground base5)
+    (org-headline-done         :foreground base6)
     (org-todo                  :bold 'inherit :foreground highlight)
     (org-done                  :inherit 'org-headline-done :bold 'inherit)
     (org-special-keyword       :foreground bg)
