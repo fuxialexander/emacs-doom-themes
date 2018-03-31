@@ -514,6 +514,8 @@
     ;; indent-guide
     ((indent-guide-face &inherit highlight-indentation-face))
 
+    ;; indent-guide
+    (helpful-heading :inherit 'outline-3)
     ;; ivy
     (ivy-current-match :background region :distant-foreground nil)
     (ivy-minibuffer-match-face-1 :background nil :foreground (doom-lighten grey 0.4) :weight 'light)
