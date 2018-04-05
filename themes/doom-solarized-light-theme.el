@@ -118,8 +118,10 @@ determine the exact padding."
 
    (org-block :background (doom-blend yellow bg 0.04))
    (org-block-background :background (doom-blend yellow bg 0.04))
-   (org-block-begin-line :background (doom-blend yellow bg 0.08))
-   (org-block-end-line :background (doom-blend yellow bg 0.08))
+
+   (org-block-begin-line :foreground (doom-blend yellow bg 0.08) :background (doom-blend yellow bg 0.08))
+   (org-block-end-line :foreground (doom-blend yellow bg 0.08) :background (doom-blend yellow bg 0.08))
+
    (font-lock-comment-face
     :slant 'italic
     :foreground comments
@@ -172,7 +174,8 @@ determine the exact padding."
    (ivy-minibuffer-match-highlight :foreground violet :weight 'bold)
 
    ;; posframe
-   (ivy-posframe :background (doom-lighten bg 0.3))
+   (ivy-posframe :background modeline-bg)
+   (internal-border :foreground modeline-bg :background modeline-bg)
    ;; org-mode
    (org-hide :foreground hidden)
    (solaire-org-hide-face :foreground hidden))
