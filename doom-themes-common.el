@@ -533,7 +533,7 @@
     ;; ivy-posframe
     (ivy-posframe :background (doom-darken bg-alt 0.1))
     ;; ovp
-    (ovp-face :height 1.0 :font "PragmataPro")
+    (ovp-face :height 1.0 :font "Iosevka")
     ;; jabber
     (jabber-activity-face          :foreground red   :weight 'bold)
     (jabber-activity-personal-face :foreground blue  :weight 'bold)
@@ -985,11 +985,11 @@
     (org-tag                      :foreground green :weight 'light)
     (org-document-title           :foreground builtin :weight 'bold)
     (org-default                  :inherit 'variable-pitch)
-    (org-meta-line                :foreground doc-comments)
-    (org-block-begin-line         :foreground bg-alt :background bg-alt :distant-foreground nil)
+    (org-meta-line                :foreground bg-alt :background (doom-blend blue bg 0.3) :distant-foreground nil :weight 'light :font "Iosevka")
+    (org-block-begin-line         :foreground (doom-blend base4 bg 0.15) :background (doom-blend base4 bg 0.15) :distant-foreground nil)
     (org-block-end-line           :inherit 'org-block-begin-line)
-    (org-block-background         :background bg-alt)
-    (org-block                    :background bg-alt)
+    (org-block-background         :background (doom-blend base4 bg 0.15))
+    (org-block                    :background (doom-blend base4 bg 0.15))
     (org-archived                 :foreground doc-comments)
     (org-code                     :foreground orange)
     (org-verbatim                 :foreground green)
@@ -997,15 +997,15 @@
     (org-list-dt                  :foreground highlight)
     (org-footnote                 :foreground orange)
 
-    (org-deadline-custom          :weight 'light :font "PragmataPro" :foreground bg :background red :distant-foreground fg)
-    (org-closed-custom            :weight 'light :font "PragmataPro" :foreground bg :background base6 :distant-foreground fg)
-    (org-scheduled-custom         :weight 'light :font "PragmataPro" :foreground bg :background green :distant-foreground fg)
+    (org-deadline-custom          :weight 'light :font "Iosevka" :foreground bg :background red :distant-foreground fg)
+    (org-closed-custom            :weight 'light :font "Iosevka" :foreground bg :background base6 :distant-foreground fg)
+    (org-scheduled-custom         :weight 'light :font "Iosevka" :foreground bg :background green :distant-foreground fg)
 
     (org-deadline-custom-braket   :foreground red   :background red :distant-foreground red)
     (org-closed-custom-braket     :foreground base6 :background base6 :distant-foreground base6)
     (org-scheduled-custom-braket  :foreground green :background green :distant-foreground green)
 
-    (org-date                     :weight 'light :font "PragmataPro")
+    (org-date                     :weight 'light :font "Iosevka")
     (org-headline-done            :foreground base6)
     (org-todo                     :bold 'inherit :foreground highlight)
     (org-done                     :inherit 'org-headline-done :bold 'inherit)
