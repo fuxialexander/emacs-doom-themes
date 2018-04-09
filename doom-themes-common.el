@@ -32,14 +32,14 @@
     (warning :foreground warning)
     (success :foreground success)
 
-    (font-lock-builtin-face              :foreground builtin :slant 'italic)
+    (font-lock-builtin-face              :foreground builtin :slant 'italic :weight 'light)
     (font-lock-comment-face              :foreground comments)
     (font-lock-comment-delimiter-face    :inherit 'font-lock-comment-face)
     (font-lock-doc-face                  :inherit 'font-lock-comment-face :foreground doc-comments)
     (font-lock-constant-face             :foreground constants)
     (font-lock-function-name-face        :foreground functions :weight 'semi-bold)
     (font-lock-keyword-face              :foreground keywords :weight 'semi-bold)
-    (font-lock-string-face               :foreground strings)
+    (font-lock-string-face               :foreground strings :weight 'semi-bold)
     (font-lock-type-face                 :foreground type :slant 'italic)
     (font-lock-variable-name-face        :foreground variables)
     (font-lock-warning-face              :inherit 'warning)
@@ -161,7 +161,7 @@
     (flx-highlight-face :weight 'bold :foreground yellow :underline nil)
 
     ;; hl-line
-    (hl-line :background bg-alt)
+    (hl-line :background bg-alt :distant-foreground fg-alt)
 
     ;; ido
     (ido-first-match :foreground orange)
@@ -597,13 +597,21 @@
     (lsp-face-highlight-textual :background dark-blue :foreground base8 :distant-foreground base0 :weight 'bold)
     (lsp-face-highlight-read    :background dark-blue :foreground base8 :distant-foreground base0 :weight 'bold)
     (lsp-face-highlight-write   :background dark-blue :foreground base8 :distant-foreground base0 :weight 'bold)
+
     (lsp-ui-peek-filename :inherit 'doom-modeline-buffer-file)
-    (lsp-ui-peek-header :foreground fg :background (doom-lighten bg 0.1) :bold bold)
+    (lsp-ui-peek-header :foreground fg :background (doom-blend blue bg 0.5) :bold bold)
     (lsp-ui-peek-selection :foreground bg :background blue :bold bold)
-    (lsp-ui-peek-list :background (doom-darken bg 0.1))
-    (lsp-ui-peek-peek :background (doom-darken bg 0.1))
+    (lsp-ui-peek-list :background bg-alt)
+    (lsp-ui-peek-peek :background bg-alt)
     (lsp-ui-peek-highlight :inherit 'lsp-ui-peek-header :background region :foreground bg :box t)
     (lsp-ui-peek-line-number :foreground success)
+    (lsp-ui-peek-footer :inherit 'lsp-ui-peek-header)
+
+    (lsp-ui-doc-url                 :inherit 'link)
+    (lsp-ui-doc-header              :background blue)
+    (lsp-ui-doc-background          :background bg-alt)
+    (lsp-ui-sideline-current-symbol :foreground bg :background highlight)
+    (lsp-ui-sideline-symbol         :background region)
 
     ;; magit
     (magit-bisect-bad        :foreground red)
