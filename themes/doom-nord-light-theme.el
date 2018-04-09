@@ -50,7 +50,7 @@ determine the exact padding."
    (base6 '("#A1ACC0" "#6b6b6b" "brightblack"))
    (base7 '("#60728C" "#979797" "brightblack"))
    (base8 '("#485163" "#dfdfdf" "white"))
-   (fg '("#3B4252" "#2d2d2d" "white"))
+   (fg    '("#3B4252" "#2d2d2d" "white"))
    (fg-alt '("#2E3440" "#bfbfbf" "brightwhite"))
 
    (grey base4)
@@ -155,9 +155,6 @@ determine the exact padding."
     :inherit 'mode-line-inactive
     :background modeline-bg-inactive-l
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
-   ;; ediff
-   (ediff-fine-diff-A :background (doom-darken blue 0.4) :weight 'bold)
-   (ediff-current-diff-A :background (doom-darken base0 0.25))
 
    ;; elscreen
    (elscreen-tab-other-screen-face :background "#353a42" :foreground "#1e2022")
