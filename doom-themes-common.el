@@ -999,7 +999,7 @@
     (org-tag                      :foreground green :weight 'light)
     (org-document-title           :foreground builtin :weight 'bold)
     (org-default                  :inherit 'variable-pitch)
-    (org-meta-line                :foreground bg-alt :background (doom-blend blue bg 0.3) :distant-foreground nil :weight 'light :font "Iosevka")
+    (org-meta-line                :foreground (doom-blend blue bg 0.2) :background bg :distant-foreground nil :weight 'extra-light :font "Iosevka")
     (org-block-begin-line         :foreground (doom-blend base4 bg 0.15) :background (doom-blend base4 bg 0.15) :distant-foreground nil)
     (org-block-end-line           :inherit 'org-block-begin-line)
     (org-block-background         :background (doom-blend base4 bg 0.15))
