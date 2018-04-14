@@ -260,6 +260,12 @@
     (company-preview-common     :background base3 :foreground magenta)
     (company-preview-search     :inherit 'company-tooltip-search)
     (company-template-field     :inherit 'match)
+    (company-box-scrollbar :foreground highlight :background base3)
+    (company-box-background :background (doom-darken bg-alt 0.1))
+    (company-box-selection :inherit 'company-tooltip-selection)
+    (company-box-annotation :inherit 'company-tooltip-annotation)
+    (company-box-candidate :foreground fg)
+
 
     ;; circe
     (circe-fool :foreground doc-comments)
