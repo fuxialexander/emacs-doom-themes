@@ -310,6 +310,20 @@
     ;; dired-k
     (dired-k-directory :foreground blue)
 
+    ;; ein
+    (ein:notification-tab-normal   :background base2)
+    (ein:notification-tab-selected :background base2)
+    (ein:cell-output-stderr        :background (doom-blend bg red 0.7))
+    (ein:cell-heading-1            :inherit 'outline-1)
+    (ein:cell-heading-2            :inherit 'outline-2)
+    (ein:cell-heading-3            :inherit 'outline-3)
+    (ein:cell-heading-4            :inherit 'outline-4)
+    (ein:cell-heading-5            :inherit 'outline-5)
+    (ein:cell-heading-6            :inherit 'outline-6)
+    (ein:cell-input-area           :background (doom-blend base4 bg 0.15))
+    (ein:cell-input-prompt         :background (doom-blend base6 bg 0.25) :weight 'light)
+    (ein:cell-output-prompt        :inherit 'ein:cell-input-prompt)
+
     ;; elscreen
     (elscreen-tab-background-face     :background bg)
     (elscreen-tab-control-face        :background bg     :foreground bg)
@@ -1026,7 +1040,7 @@
     (org-special-keyword          :foreground bg)
     (org-property-value           :foreground bg)
     (org-checkbox                 :inherit 'org-todo)
-    (org-table                    :background base3)
+    (org-table                    :background base2 :overline base5)
     (org-column                   :inherit 'org-table)
     (org-column-title             :inherit 'org-column :weight 'bold)
     (org-agenda-column-dateline   :inherit 'org-column)
