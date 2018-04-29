@@ -161,8 +161,8 @@ determine the exact padding."
 
    (magit-diff-hunk-heading-highlight :foreground bg :background blue :weight 'bold)
    (magit-diff-hunk-heading :foreground bg :background (doom-blend blue bg 0.3))
-   (company-box-background :background (doom-blend blue bg 0.2))
-   (ivy-posframe :background (doom-blend blue bg 0.2))
+   (company-box-background :background bg-alt)
+   (ivy-posframe :background bg-alt)
    (ivy-virtual :foreground (doom-blend blue bg 0.8))
    (ivy-minibuffer-match-face-1 :background nil :foreground (doom-blend fg bg 0.5) :weight 'light)
    (internal-border :foreground (doom-blend blue bg 0.2) :background (doom-blend blue bg 0.2))

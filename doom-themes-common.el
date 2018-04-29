@@ -71,10 +71,33 @@
 
 
     ;; --- built-in plugin faces --------------
+    ;; custom
+    (custom-button                  :foreground blue   :background bg     :box '(:line-width 1 :style none))
+    (custom-button-unraised         :foreground violet :background bg     :box '(:line-width 1 :style none))
+    (custom-button-pressed-unraised :foreground bg     :background violet :box '(:line-width 1 :style none))
+    (custom-button-pressed          :foreground bg     :background blue   :box '(:line-width 1 :style none))
+    (custom-button-mouse            :foreground bg     :background blue   :box '(:line-width 1 :style none))
+
+    (custom-variable-button   :foreground green :underline t)
+    (custom-saved             :foreground green :background (doom-blend green bg 0.2) :weight 'bold)
+    (custom-comment           :foreground fg :background region)
+    (custom-comment-tag       :foreground grey)
+    (custom-modified          :foreground blue :background (doom-blend blue bg 0.2))
+    (custom-variable-tag      :foreground magenta)
+    (custom-visibility        :foreground blue :underline nil)
+    (custom-group-subtitle    :foreground red)
+    (custom-group-tag         :foreground violet)
+    (custom-group-tag-1       :foreground blue)
+    (custom-set               :foreground yellow :background bg)
+    (custom-themed            :foreground yellow :background bg)
+    (custom-invalid           :foreground red :background (doom-blend red bg 0.2))
+    (custom-variable-obsolete :foreground grey :background bg)
+    (custom-state             :foreground green :background (doom-blend green bg 0.2))
+    (custom-changed           :foreground blue :background bg)
+
     ;; dired
     (dired-directory :foreground builtin)
     (dired-ignored   :foreground comments)
-
     (dired-flagged    :foreground red)
     (dired-header     :foreground blue :weight 'bold)
     (dired-mark       :foreground orange :weight 'bold)
@@ -83,38 +106,6 @@
     (dired-symlink    :foreground cyan :weight 'bold)
     (dired-warning    :foreground warning)
 
-    (dired-subtree-depth-1-face :background (doom-darken bg-alt 0.02))
-    (dired-subtree-depth-2-face :background (doom-darken bg-alt 0.04))
-    (dired-subtree-depth-3-face :background (doom-darken bg-alt 0.06))
-    (dired-subtree-depth-4-face :background (doom-darken bg-alt 0.08))
-    (dired-subtree-depth-5-face :background (doom-darken bg-alt 0.10))
-    (dired-subtree-depth-6-face :background (doom-darken bg-alt 0.12))
-
-    (diredfl-autofile-name          :foreground base4)
-    (diredfl-compressed-file-name   :foreground yellow)
-    (diredfl-compressed-file-suffix :foreground (doom-blend orange bg-alt 0.6))
-    (diredfl-date-time              :foreground cyan :weight 'light)
-    (diredfl-deletion               :foreground red :background (doom-blend red bg-alt 0.2) :weight 'bold)
-    (diredfl-deletion-file-name     :foreground red :background (doom-blend red bg-alt 0.2))
-    (diredfl-dir-heading            :foreground blue :weight 'bold)
-    (diredfl-dir-name               :foreground blue)
-    (diredfl-dir-priv               :foreground blue)
-    (diredfl-exec-priv              :foreground green)
-    (diredfl-executable-tag         :foreground green)
-    (diredfl-file-name              :foreground fg)
-    (diredfl-file-suffix            :foreground (doom-blend fg bg-alt 0.6))
-    (diredfl-flag-mark              :foreground yellow :background (doom-blend yellow bg-alt 0.2) :weight 'bold)
-    (diredfl-flag-mark-line         :background (doom-blend yellow bg-alt 0.1))
-    (diredfl-ignored-file-name      :foreground comments)
-    (diredfl-link-priv              :foreground violet)
-    (diredfl-no-priv                :foreground fg)
-    (diredfl-number                 :foreground orange)
-    (diredfl-other-priv             :foreground magenta)
-    (diredfl-rare-priv              :foreground fg)
-    (diredfl-read-priv              :foreground yellow)
-    (diredfl-symlink                :foreground violet)
-    (diredfl-tagged-autofile-name   :foreground base5)
-    (diredfl-write-priv             :foreground red)
 
     ;; ediff
     (ediff-fine-diff-A    :background (doom-blend selection bg 0.7) :weight 'bold)
@@ -183,7 +174,7 @@
     (message-header-other :foreground comments)
 
     ;; term
-    (term               :inherit 'default)
+    (term               :foreground fg)
     (term-bold          :weight 'bold)
     (term-color-black   :background base0   :foreground base0)
     (term-color-red     :background red     :foreground red)
@@ -199,10 +190,43 @@
     (window-divider-first-pixel :inherit 'window-divider)
     (window-divider-last-pixel  :inherit 'window-divider)
 
-    (twitter-divider :underline `(:color ,(doom-blend vertical-bar bg 0.8)))
     (internal-border :foreground (doom-darken bg-alt 0.1) :background (doom-darken bg-alt 0.1))
 
     ;; --- plugin faces -----------------------
+        ;; all-the-icons
+    (all-the-icons-red      :foreground red)
+    (all-the-icons-lred     :foreground (doom-lighten red 0.3))
+    (all-the-icons-dred     :foreground (doom-darken red 0.3))
+    (all-the-icons-green    :foreground green)
+    (all-the-icons-lgreen   :foreground (doom-lighten green 0.3))
+    (all-the-icons-dgreen   :foreground (doom-darken green 0.3))
+    (all-the-icons-yellow   :foreground yellow)
+    (all-the-icons-lyellow  :foreground (doom-lighten yellow 0.3))
+    (all-the-icons-dyellow  :foreground (doom-darken yellow 0.3))
+    (all-the-icons-blue     :foreground blue)
+    (all-the-icons-blue-alt :foreground teal)
+    (all-the-icons-lblue    :foreground (doom-lighten blue 0.3))
+    (all-the-icons-dblue    :foreground dark-blue)
+    (all-the-icons-maroon   :foreground magenta)
+    (all-the-icons-lmaroon  :foreground (doom-lighten magenta 0.3))
+    (all-the-icons-dmaroon  :foreground (doom-darken magenta 0.3))
+    (all-the-icons-purple   :foreground violet)
+    (all-the-icons-lpurple  :foreground (doom-lighten violet 0.3))
+    (all-the-icons-dpurple  :foreground (doom-darken violet 0.3))
+    (all-the-icons-cyan     :foreground cyan)
+    (all-the-icons-cyan-alt :foreground cyan)
+    (all-the-icons-lcyan    :foreground (doom-lighten cyan 0.3))
+    (all-the-icons-dcyan    :foreground dark-cyan)
+    (all-the-icons-pink     :foreground (doom-lighten red 0.35))
+    (all-the-icons-lpink    :foreground (doom-lighten red 0.55))
+    (all-the-icons-dpink    :foreground red)
+    (all-the-icons-silver   :foreground grey)
+    (all-the-icons-lsilver  :foreground (doom-lighten grey 0.3))
+    (all-the-icons-dsilver  :foreground (doom-darken grey 0.3))
+
+    ;; twitter
+    (twitter-divider :underline `(:color ,(doom-blend vertical-bar bg 0.8)))
+
     ;; avy
     (avy-lead-face :background highlight :foreground base0 :distant-foreground base8)
     (avy-lead-face-0 :inherit 'avy-lead-face)
@@ -246,10 +270,29 @@
     (bmkp-url                        :foreground blue :underline t)
     (bmkp-variable-list              :foreground green)
 
+    ;; calfw
+    (cfw:face-title               :foreground blue                    :weight 'bold :height 2.0 :inherit 'variable-pitch)
+    (cfw:face-header              :foreground (doom-blend blue bg 0.8) :weight 'bold)
+    (cfw:face-sunday              :foreground (doom-blend red bg 0.8) :weight 'bold)
+    (cfw:face-saturday            :foreground (doom-blend red bg 0.8) :weight 'bold)
+    (cfw:face-holiday            :foreground nil :background bg-alt   :weight 'bold)
+    (cfw:face-grid                :foreground vertical-bar)
+    (cfw:face-periods             :foreground yellow)
+    (cfw:face-toolbar             :foreground nil :background nil)
+    (cfw:face-toolbar-button-off  :foreground base6                   :weight 'bold :inherit 'variable-pitch)
+    (cfw:face-toolbar-button-on   :foreground blue                    :weight 'bold :inherit 'variable-pitch)
+    (cfw:face-default-content     :foreground fg)
+    (cfw:face-day-title           :foreground fg :weight 'bold)
+    (cfw:face-today-title         :foreground bg  :background blue    :weight 'bold)
+    (cfw:face-default-day                                             :weight 'bold)
+    (cfw:face-today               :foreground nil :background nil     :weight 'bold)
+    (cfw:face-annotation          :foreground violet)
+    (cfw:face-disable             :foreground grey)
+    (cfw:face-select              :background region)
 
     ;; company
     (company-tooltip            :inherit 'tooltip)
-    (company-tooltip-common                           :weight 'bold)
+    (company-tooltip-common                           :foreground highlight)
     (company-tooltip-search     :background highlight :foreground bg :distant-foreground fg)
     (company-tooltip-selection  :background selection)
     (company-tooltip-mouse      :background magenta   :foreground bg :distant-foreground fg)
@@ -310,6 +353,41 @@
     ;; dired-k
     (dired-k-directory :foreground blue)
 
+    ;; dired-subtree
+    (dired-subtree-depth-1-face :background (doom-darken bg-alt 0.02))
+    (dired-subtree-depth-2-face :background (doom-darken bg-alt 0.04))
+    (dired-subtree-depth-3-face :background (doom-darken bg-alt 0.06))
+    (dired-subtree-depth-4-face :background (doom-darken bg-alt 0.08))
+    (dired-subtree-depth-5-face :background (doom-darken bg-alt 0.10))
+    (dired-subtree-depth-6-face :background (doom-darken bg-alt 0.12))
+
+
+    (diredfl-autofile-name          :foreground base4)
+    (diredfl-compressed-file-name   :foreground yellow)
+    (diredfl-compressed-file-suffix :foreground (doom-blend orange bg-alt 0.6))
+    (diredfl-date-time              :foreground cyan :weight 'light)
+    (diredfl-deletion               :foreground red :background (doom-blend red bg-alt 0.2) :weight 'bold)
+    (diredfl-deletion-file-name     :foreground red :background (doom-blend red bg-alt 0.2))
+    (diredfl-dir-heading            :foreground blue :weight 'bold)
+    (diredfl-dir-name               :foreground blue)
+    (diredfl-dir-priv               :foreground blue)
+    (diredfl-exec-priv              :foreground green)
+    (diredfl-executable-tag         :foreground green)
+    (diredfl-file-name              :foreground fg)
+    (diredfl-file-suffix            :foreground (doom-blend fg bg-alt 0.6))
+    (diredfl-flag-mark              :foreground yellow :background (doom-blend yellow bg-alt 0.2) :weight 'bold)
+    (diredfl-flag-mark-line         :background (doom-blend yellow bg-alt 0.1))
+    (diredfl-ignored-file-name      :foreground comments)
+    (diredfl-link-priv              :foreground violet)
+    (diredfl-no-priv                :foreground fg)
+    (diredfl-number                 :foreground orange)
+    (diredfl-other-priv             :foreground magenta)
+    (diredfl-rare-priv              :foreground fg)
+    (diredfl-read-priv              :foreground yellow)
+    (diredfl-symlink                :foreground violet)
+    (diredfl-tagged-autofile-name   :foreground base5)
+    (diredfl-write-priv             :foreground red)
+
     ;; ein
     (ein:notification-tab-normal   :background base2)
     (ein:notification-tab-selected :background base2)
@@ -363,29 +441,6 @@
     (evil-goggles-paste-face                 :inherit nil :background (doom-blend green  bg 0.5))
     (evil-goggles-replace-with-register-face :inherit nil :background (doom-blend orange bg 0.5))
 
-    ;; custom
-    (custom-button                  :foreground blue   :background bg     :box '(:line-width 1 :style none))
-    (custom-button-unraised         :foreground violet :background bg     :box '(:line-width 1 :style none))
-    (custom-button-pressed-unraised :foreground bg     :background violet :box '(:line-width 1 :style none))
-    (custom-button-pressed          :foreground bg     :background blue   :box '(:line-width 1 :style none))
-    (custom-button-mouse            :foreground bg     :background blue   :box '(:line-width 1 :style none))
-
-    (custom-variable-button   :foreground green :underline t)
-    (custom-saved             :foreground green :background (doom-blend green bg 0.2) :weight 'bold)
-    (custom-comment           :foreground fg :background region)
-    (custom-comment-tag       :foreground grey)
-    (custom-modified          :foreground blue :background (doom-blend blue bg 0.2))
-    (custom-variable-tag      :foreground magenta)
-    (custom-visibility        :foreground blue :underline nil)
-    (custom-group-subtitle    :foreground red)
-    (custom-group-tag         :foreground violet)
-    (custom-group-tag-1       :foreground blue)
-    (custom-set               :foreground yellow :background bg)
-    (custom-themed            :foreground yellow :background bg)
-    (custom-invalid           :foreground red :background (doom-blend red bg 0.2))
-    (custom-variable-obsolete :foreground grey :background bg)
-    (custom-state             :foreground green :background (doom-blend green bg 0.2))
-    (custom-changed           :foreground blue :background bg)
 
     ;; keycast
     (keycast-key              :foreground blue :weight 'bold)
@@ -501,6 +556,9 @@
     (helm-swoop-target-word-face       :foreground green :inherit 'bold)
     (helm-swoop-target-number-face     :foreground base5)
 
+    ;; helpful
+    (helpful-heading :inherit 'outline-3)
+
     ;; highlight-indentation-mode
     (highlight-indentation-face                :inherit 'hl-line)
     (highlight-indentation-current-column-face :background base1)
@@ -531,11 +589,18 @@
     (iedit-occurrence :foreground magenta :weight 'bold :inverse-video t)
     (iedit-read-only-occurrence :inherit 'region)
 
+    ;; imenu-list
+    ;; (imenu-list-entry-face)
+    (imenu-list-entry-face-0 :foreground highlight)
+    (imenu-list-entry-subalist-face-0 :inherit 'imenu-list-entry-face-0 :weight 'bold)
+    (imenu-list-entry-face-1 :foreground green)
+    (imenu-list-entry-subalist-face-1 :inherit 'imenu-list-entry-face-1 :weight 'bold)
+    (imenu-list-entry-face-2 :foreground yellow)
+    (imenu-list-entry-subalist-face-2 :inherit 'imenu-list-entry-face-2 :weight 'bold)
+
     ;; indent-guide
     ((indent-guide-face &inherit highlight-indentation-face))
 
-    ;; indent-guide
-    (helpful-heading :inherit 'outline-3)
     ;; ivy
     (ivy-current-match :background region :distant-foreground nil)
     (ivy-minibuffer-match-face-1 :background nil :foreground (doom-lighten grey 0.4) :weight 'light)
@@ -617,7 +682,6 @@
     (lsp-face-highlight-textual :background dark-blue :foreground base8 :distant-foreground base0 :weight 'bold)
     (lsp-face-highlight-read    :background dark-blue :foreground base8 :distant-foreground base0 :weight 'bold)
     (lsp-face-highlight-write   :background dark-blue :foreground base8 :distant-foreground base0 :weight 'bold)
-
     (lsp-ui-peek-filename :inherit 'doom-modeline-buffer-file)
     (lsp-ui-peek-header :foreground fg :background (doom-blend blue bg 0.5) :bold bold)
     (lsp-ui-peek-selection :foreground bg :background blue :bold bold)
@@ -932,26 +996,6 @@
     (notmuch-wash-toggle-button              :foreground fg)
 
 
-    ;; calfw
-    (cfw:face-title               :foreground blue                    :weight 'bold :height 2.0 :inherit 'variable-pitch)
-    (cfw:face-header              :foreground (doom-blend blue bg 0.8) :weight 'bold)
-    (cfw:face-sunday              :foreground (doom-blend red bg 0.8) :weight 'bold)
-    (cfw:face-saturday            :foreground (doom-blend red bg 0.8) :weight 'bold)
-    (cfw:face-holiday             :background bg-alt :foreground nil  :weight 'bold)
-    (cfw:face-grid                :foreground vertical-bar)
-    (cfw:face-periods             :foreground yellow)
-    (cfw:face-toolbar             :foreground nil :background nil)
-    (cfw:face-toolbar-button-off  :foreground base6                   :weight 'bold :inherit 'variable-pitch)
-    (cfw:face-toolbar-button-on   :foreground blue                    :weight 'bold :inherit 'variable-pitch)
-
-    (cfw:face-default-content     :foreground fg)
-    (cfw:face-day-title           :foreground fg :weight 'bold)
-    (cfw:face-today-title         :foreground bg  :background blue    :weight 'bold)
-    (cfw:face-default-day                                             :weight 'bold)
-    (cfw:face-today               :foreground nil :background nil     :weight 'bold)
-    (cfw:face-annotation          :foreground violet)
-    (cfw:face-disable             :foreground grey)
-    (cfw:face-select              :background region)
 
 
     ;; org-agenda
@@ -1078,22 +1122,22 @@
     ;; (sx-question-list-parent           :foreground fg :background bg)
     (sx-question-mode-kbd-tag             :foreground blue :box '(:line-width 1 :style none))
     ;; (sx-question-mode-sub-sup-tag      :foreground fg :background bg)
-    ;; (sx-question-mode-closed-reason    :foreground fg :background bg)
+    (sx-question-mode-closed-reason    :weight 'bold)
     ;; (sx-question-mode-closed           :foreground fg :background bg)
     ;; (sx-question-mode-accepted         :foreground fg :background bg)
     (sx-question-mode-content-face                       :background bg)
     ;; (sx-question-mode-score-upvoted    :foreground fg :background bg)
-    ;; (sx-question-mode-score-downvoted  :foreground fg :background bg)
-    ;; (sx-question-mode-score            :foreground fg :background bg)
-    ;; (sx-question-mode-date             :foreground fg :background bg)
-    ;; (sx-question-mode-title-comments   :foreground fg :background bg)
-    ;; (sx-question-mode-title            :foreground fg :background bg)
-    (sx-question-mode-header              :inherit 'message-header-name)
+    ;; (sx-question-mode-score-downvoted  :foreground fg :background bg-alt)
+    ;; (sx-question-mode-score            :foreground fg :background bg-alt)
+    (sx-question-mode-date             :foreground orange :background bg-alt)
+    ;; (sx-question-mode-title-comments   :foreground fg :background bg-alt)
+    (sx-question-mode-title            :foreground fg :background bg-alt :font "SF UI Display" :weight 'bold :height 1.4)
+    (sx-question-mode-header              :inherit 'message-header-name :background bg-alt)
     (sx-user-accept-rate :foreground green :weight 'light)
-    ;; (sx-user-reputation                :foreground fg :background bg)
-    ;; (sx-user-name                      :foreground fg :background bg)
-    ;; (sx-tag                            :foreground fg :background bg)
-    ;; (sx-custom-button                  :foreground fg :background bg)
+    (sx-user-reputation                :foreground grey :background bg-alt)
+    (sx-user-name                      :foreground blue :background bg-alt)
+    (sx-tag                            :foreground green :background bg-alt)
+    (sx-custom-button              :foreground blue   :background bg     :box '(:line-width 1 :style none))
 
     ;; sh-mode
     (sh-heredoc :inherit 'font-lock-string-face :weight 'normal)
