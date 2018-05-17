@@ -5,8 +5,8 @@
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: May 22, 2016
-;; Modified: March 12, 2018
-;; Version: 2.1.2
+;; Modified: March 28, 2018
+;; Version: 2.1.3
 ;; Keywords: dark light blue atom one theme neotree icons faces nova
 ;; Homepage: https://github.com/hlissner/emacs-doom-theme
 ;; Package-Requires: ((emacs "24.4") (all-the-icons "1.0.0") (cl-lib "0.5"))
@@ -82,6 +82,11 @@
   "If nil, italics will be disabled across all faces."
   :group 'doom-themes
   :type 'boolean)
+
+(defcustom doom-themes-padded-modeline nil
+  "Default value for padded-modeline setting for themes that support it."
+  :group 'doom-themes
+  :type '(or integer boolean))
 
 (define-obsolete-variable-alias 'doom-enable-italic 'doom-themes-enable-italic "1.2.9")
 (define-obsolete-variable-alias 'doom-enable-bold   'doom-themes-enable-bold "1.2.9")
@@ -194,8 +199,8 @@ between 0 and 1)."
             (italic doom-themes-enable-italic)
             ,@defs)
        (setq doom-themes--colors
-             (cl-loop for (var val) in ',defs
-                      collect (cons var (eval val))))
+             (list ,@(cl-loop for (var val) in defs
+                              collect `(cons ',var ,val))))
        (deftheme ,name ,docstring)
        (custom-theme-set-faces ',name ,@(doom-themes-common-faces extra-faces))
        (custom-theme-set-variables ',name ,@(doom-themes-common-variables extra-vars))

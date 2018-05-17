@@ -65,12 +65,18 @@
      :foreground base5 :distant-foreground nil
      :weight 'normal :italic nil :underline nil :strike-through nil)
     (line-number-current-line
-     :inherit 'hl-line
+     :inherit '(hl-line default)
      :foreground fg :distant-foreground nil
      :weight 'normal :italic nil :underline nil :strike-through nil)
 
 
     ;; --- built-in plugin faces --------------
+    ;; cperl
+    (cperl-array-face          :weight 'bold :inherit 'font-lock-variable-name-face)
+    (cperl-hash-face           :weight 'bold :slant 'italic :inherit 'font-lock-variable-name-face)
+    (cperl-nonoverridable-face :inherit 'font-lock-builtin-face)
+
+
     ;; custom
     (custom-button                  :foreground blue   :background bg     :box '(:line-width 1 :style none))
     (custom-button-unraised         :foreground violet :background bg     :box '(:line-width 1 :style none))
@@ -127,12 +133,12 @@
     (elfeed-log-info-level-face  :inherit 'success)
     (elfeed-log-warn-level-face  :inherit 'warning)
     (elfeed-search-date-face     :foreground violet)
-    (elfeed-search-feed-face     :foreground blue)
-    (elfeed-search-tag-face      :foreground comments)
-    (elfeed-search-title-face    :foreground comments)
+    (elfeed-search-feed-face     :foreground blue :font "Iosevka" :weight 'extralight)
+    (elfeed-search-tag-face      :foreground comments :font "Iosevka" :weight 'extralight)
+    (elfeed-search-title-face    :foreground base6 :font "SF UI Display")
     (elfeed-search-filter-face   :foreground violet)
     (elfeed-search-unread-count-face :foreground yellow)
-    (elfeed-search-unread-title-face :foreground fg :weight 'bold)
+    (elfeed-search-unread-title-face :foreground fg :font "SF UI Display" :weight 'bold)
 
     ;; eshell
     (eshell-prompt        :foreground base7)
@@ -193,7 +199,7 @@
     (internal-border :foreground (doom-darken bg-alt 0.1) :background (doom-darken bg-alt 0.1))
 
     ;; --- plugin faces -----------------------
-        ;; all-the-icons
+    ;; all-the-icons
     (all-the-icons-red      :foreground red)
     (all-the-icons-lred     :foreground (doom-lighten red 0.3))
     (all-the-icons-dred     :foreground (doom-darken red 0.3))
@@ -292,9 +298,10 @@
 
     ;; company
     (company-tooltip            :inherit 'tooltip)
-    (company-tooltip-common                           :foreground highlight)
-    (company-tooltip-search     :background highlight :foreground bg :distant-foreground fg)
-    (company-tooltip-selection  :background selection)
+    (company-tooltip-common                           :foreground highlight :distant-foreground base0 :weight 'bold)
+    (company-tooltip-search     :background highlight :foreground bg :distant-foreground fg :weight 'bold)
+    (company-tooltip-search-selection :background (doom-darken selection 0.25))
+    (company-tooltip-selection  :background selection :weight 'bold)
     (company-tooltip-mouse      :background magenta   :foreground bg :distant-foreground fg)
     (company-tooltip-annotation                       :foreground violet)
     (company-scrollbar-bg       :inherit 'tooltip)
@@ -325,6 +332,9 @@
     ;; diff-mode
     (diff-added   :inherit 'hl-line :foreground green)
     (diff-changed :foreground violet)
+    (diff-context
+     (&dark  :foreground (doom-darken fg 0.12))
+     (&light :foreground (doom-lighten fg 0.12)))
     (diff-removed :foreground red :background base3)
     (diff-header  :foreground cyan :background nil)
     (diff-file-header :foreground blue :background nil)
@@ -905,6 +915,15 @@
                       (&dark  :foreground cyan))
     (elixir-attribute-face :foreground violet)
 
+    ;; enh-ruby-mode
+    (enh-ruby-op-face :foreground operators)
+    (enh-ruby-string-delimiter-face  :inherit 'font-lock-string-face)
+    (enh-ruby-heredoc-delimiter-face :inherit 'font-lock-string-face)
+    (enh-ruby-regexp-face :foreground constants)
+    (enh-ruby-regexp-delimiter-face  :inherit 'enh-ruby-regexp-face)
+    (erm-syn-errline  :underline `(:style wave :color ,error))
+    (erm-syn-warnline :underline `(:style wave :color ,warning))
+
     ;; jdee-mode
     (jdee-font-lock-number-face :foreground numbers)
     (jdee-font-lock-operator-face :foreground operators)
@@ -1053,14 +1072,18 @@
     (org-level-7         :inherit 'outline-7)
     (org-level-8         :inherit 'outline-8)
 
-    (org-ref-cite-face            :foreground yellow :weight 'light :underline t)
+    (org-ref-cite-face            :inherit nil :foreground yellow :weight 'light :underline t :weight 'extra-light :font "Iosevka")
+    (org-ref-ref-face            :inherit nil :foreground green :weight 'light :underline t :weight 'extra-light :font "Iosevka")
+    (org-ref-label-face            :inherit nil :foreground red :weight 'light :underline t :weight 'extra-light :font "Iosevka")
+    (org-ref-glossary-face            :inherit nil :foreground orange :weight 'light :underline t :weight 'extra-light :font "Iosevka")
+    (org-ref-acronym-face            :inherit nil :foreground violet :weight 'light :underline t :weight 'extra-light :font "Iosevka")
     (org-tag                      :foreground green :weight 'light)
     (org-document-title           :foreground builtin :weight 'bold)
     (org-default                  :inherit 'variable-pitch)
     (org-meta-line                :foreground (doom-blend blue bg 0.2) :background bg :distant-foreground nil :weight 'extra-light :font "Iosevka")
-    (org-block-begin-line         :foreground (doom-blend base4 bg 0.15) :background (doom-blend base4 bg 0.15) :distant-foreground nil)
+    (org-block-begin-line         :weight 'extralight :font "Iosevka" :foreground (doom-blend blue bg 0.5) :background (doom-blend base4 bg 0.1) :distant-foreground nil)
     (org-block-end-line           :inherit 'org-block-begin-line)
-    (org-block-background         :background (doom-blend base4 bg 0.15))
+    (org-block-background         :weight 'extralight :font "Iosevka" :background (doom-blend base4 bg 0.1))
     (org-block                    :background (doom-blend base4 bg 0.15))
     (org-archived                 :foreground doc-comments)
     (org-code                     :foreground orange)
@@ -1069,22 +1092,22 @@
     (org-list-dt                  :foreground highlight)
     (org-footnote                 :foreground orange)
 
-    (org-deadline-custom          :weight 'light :font "Iosevka" :foreground bg :background red :distant-foreground fg)
-    (org-closed-custom            :weight 'light :font "Iosevka" :foreground bg :background base6 :distant-foreground fg)
-    (org-scheduled-custom         :weight 'light :font "Iosevka" :foreground bg :background green :distant-foreground fg)
+    (org-deadline-custom          :weight 'extralight :font "Iosevka" :foreground bg :background red :distant-foreground fg)
+    (org-closed-custom            :weight 'extralight :font "Iosevka" :foreground bg :background base6 :distant-foreground fg)
+    (org-scheduled-custom         :weight 'extralight :font "Iosevka" :foreground bg :background green :distant-foreground fg)
 
     (org-deadline-custom-braket   :foreground red   :background red :distant-foreground red)
     (org-closed-custom-braket     :foreground base6 :background base6 :distant-foreground base6)
     (org-scheduled-custom-braket  :foreground green :background green :distant-foreground green)
 
-    (org-date                     :weight 'light :font "Iosevka")
+    (org-date                     :font "Iosevka" :weight 'extralight)
     (org-headline-done            :foreground base6)
     (org-todo                     :bold 'inherit :foreground highlight)
     (org-done                     :inherit 'org-headline-done :bold 'inherit)
-    (org-special-keyword          :foreground bg)
-    (org-property-value           :foreground bg)
+    (org-special-keyword          :foreground (doom-blend blue bg 0.3) :font "Iosevka" :weight 'extralight)
+    (org-property-value           :foreground (doom-blend blue bg 0.3) :font "Iosevka" :weight 'extralight)
     (org-checkbox                 :inherit 'org-todo)
-    (org-table                    :background base2 :overline base5)
+    (org-table                    :overline base5 :font "Iosevka")
     (org-column                   :inherit 'org-table)
     (org-column-title             :inherit 'org-column :weight 'bold)
     (org-agenda-column-dateline   :inherit 'org-column)
