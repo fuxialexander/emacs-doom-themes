@@ -180,8 +180,8 @@
     (message-header-other :foreground comments)
 
     ;; term
-    (term               :foreground fg)
-    (term-bold          :weight 'bold)
+    (term               :foreground fg :background bg)
+    (term-bold          :weight 'bold :background bg)
     (term-color-black   :background base0   :foreground base0)
     (term-color-red     :background red     :foreground red)
     (term-color-green   :background green   :foreground green)
@@ -627,6 +627,7 @@
 
     ;; ivy-posframe
     (ivy-posframe :background (doom-darken bg-alt 0.1))
+    (ivy-posframe-cursor :background highlight)
     ;; ovp
     (ovp-face :height 1.0 :font "Iosevka")
     ;; jabber
