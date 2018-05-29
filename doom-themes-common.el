@@ -625,6 +625,10 @@
     (ivy-virtual :inherit 'italic :foreground doc-comments)
     (ivy-modified-buffer :inherit 'bold :foreground vc-modified)
 
+    (prodigy-green-face :foreground green)
+    (prodigy-red-face :foreground red)
+    (prodigy-yellow-face :foreground yellow)
+
     ;; ivy-posframe
     (ivy-posframe :background (doom-darken bg-alt 0.1))
     (ivy-posframe-cursor :background highlight)
