@@ -5,8 +5,8 @@
 ;; Author: Henrik Lissner <http://github/hlissner>
 ;; Maintainer: Henrik Lissner <henrik@lissner.net>
 ;; Created: May 22, 2016
-;; Modified: March 28, 2018
-;; Version: 2.1.3
+;; Modified: May 14, 2018
+;; Version: 2.1.4
 ;; Keywords: dark light blue atom one theme neotree icons faces nova
 ;; Homepage: https://github.com/hlissner/emacs-doom-theme
 ;; Package-Requires: ((emacs "24.4") (all-the-icons "1.0.0") (cl-lib "0.5"))
@@ -202,8 +202,10 @@ between 0 and 1)."
              (list ,@(cl-loop for (var val) in defs
                               collect `(cons ',var ,val))))
        (deftheme ,name ,docstring)
-       (custom-theme-set-faces ',name ,@(doom-themes-common-faces extra-faces))
-       (custom-theme-set-variables ',name ,@(doom-themes-common-variables extra-vars))
+       (custom-theme-set-faces
+        ',name ,@(doom-themes-prepare-facelist (append (doom-themes-common-faces) extra-faces)))
+       (custom-theme-set-variables
+        ',name ,@(doom-themes-prepare-varlist (append (doom-themes-common-vars) extra-vars)))
        (provide-theme ',name))))
 
 ;;;###autoload
