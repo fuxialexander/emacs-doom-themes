@@ -1,6 +1,7 @@
 ;;; doom-themes-common.el -*- lexical-binding: t; -*-
 
-(defconst doom-themes-common-faces
+(defun doom-themes-common-faces ()
+  "TODO"
   '(;; --- custom faces -----------------------
     (doom-modeline-error
      :background (doom-darken red 0.25)
@@ -234,10 +235,20 @@
     (twitter-divider :underline `(:color ,(doom-blend vertical-bar bg 0.8)))
 
     ;; avy
-    (avy-lead-face :background highlight :foreground base0 :distant-foreground base8)
-    (avy-lead-face-0 :inherit 'avy-lead-face)
-    (avy-lead-face-1 :inherit 'avy-lead-face)
-    (avy-lead-face-2 :inherit 'avy-lead-face)
+    (avy-background-face :foreground comments)
+    (avy-lead-face :background highlight :foreground bg :distant-foreground fg :weight 'bold)
+    (avy-lead-face-0
+     (&all   :inherit 'avy-lead-face)
+     (&dark  :background (doom-lighten highlight 0.3))
+     (&light :background (doom-darken highlight 0.3)))
+    (avy-lead-face-1
+     (&all   :inherit 'avy-lead-face)
+     (&dark  :background (doom-lighten highlight 0.6))
+     (&light :background (doom-darken highlight 0.6)))
+    (avy-lead-face-2
+     (&all   :inherit 'avy-lead-face)
+     (&dark  :background (doom-lighten highlight 0.9))
+     (&light :background (doom-darken highlight 0.9)))
 
     ;; bookmark+
     (bmkp-*-mark                     :foreground bg     :background yellow)
@@ -306,8 +317,8 @@
     (company-tooltip-annotation                       :foreground violet)
     (company-scrollbar-bg       :inherit 'tooltip)
     (company-scrollbar-fg       :background highlight)
-    (company-preview                                  :foreground highlight)
-    (company-preview-common     :background base3 :foreground magenta)
+    (company-preview                              :foreground comments)
+    (company-preview-common     :background base3 :foreground highlight)
     (company-preview-search     :inherit 'company-tooltip-search)
     (company-template-field     :inherit 'match)
     (company-box-scrollbar :foreground highlight :background base3)
@@ -471,6 +482,20 @@
 
     ;; flyspell
     (flyspell-incorrect :underline `(:style wave :color ,error) :inherit 'unspecified)
+
+    ;; git-commit
+    (git-commit-summary :foreground strings)
+    (git-commit-overlong-summary :inherit 'error :background base0 :slant 'italic :weight 'bold)
+    (git-commit-nonempty-second-line :inherit 'git-commit-overlong-summary)
+    (git-commit-note :foreground cyan :slant 'italic)
+    (git-commit-pseudo-header :foreground doc-comments :slant 'italic)
+    (git-commit-known-pseudo-header :foreground doc-comments :weight 'bold :slant 'italic)
+    (git-commit-comment-branch-local :foreground magenta)
+    (git-commit-comment-branch-remote :foreground green)
+    (git-commit-comment-detached :foreground orange)
+    (git-commit-comment-heading :foreground keywords)
+    (git-commit-comment-file :foreground violet)
+    (git-commit-comment-action)
 
     ;; git-gutter
     (git-gutter:modified :foreground vc-modified)
@@ -1178,10 +1203,10 @@
     (web-mode-html-attr-name-face    :foreground type)
     (web-mode-html-entity-face       :foreground cyan :inherit 'italic)
     (web-mode-block-control-face     :foreground orange)
-    (web-mode-html-tag-bracket-face  :foreground operators))
-  "TODO")
+    (web-mode-html-tag-bracket-face  :foreground operators)))
 
-(defconst doom-themes-common-vars
+(defun doom-themes-common-vars ()
+  "TODO"
   '((ansi-color-names-vector
      (vconcat (mapcar #'doom-color '(base0 red green yellow blue magenta cyan base8))))
 
@@ -1193,26 +1218,25 @@
 
     (vc-annotate-color-map
      `(list (cons 20  ,(doom-color 'green))
-            (cons 40  ,(doom-blend (doom-color 'yellow) (doom-color 'green) (/ 1.0 3)))
-            (cons 60  ,(doom-blend (doom-color 'yellow) (doom-color 'green) (/ 2.0 3)))
+            (cons 40  ,(doom-blend 'yellow 'green (/ 1.0 3)))
+            (cons 60  ,(doom-blend 'yellow 'green (/ 2.0 3)))
             (cons 80  ,(doom-color 'yellow))
-            (cons 100 ,(doom-blend (doom-color 'orange) (doom-color 'yellow) (/ 1.0 3)))
-            (cons 120 ,(doom-blend (doom-color 'orange) (doom-color 'yellow) (/ 2.0 3)))
+            (cons 100 ,(doom-blend 'orange 'yellow (/ 1.0 3)))
+            (cons 120 ,(doom-blend 'orange 'yellow (/ 2.0 3)))
             (cons 140 ,(doom-color 'orange))
-            (cons 160 ,(doom-blend (doom-color 'magenta) (doom-color 'orange) (/ 1.0 3)))
-            (cons 180 ,(doom-blend (doom-color 'magenta) (doom-color 'orange) (/ 2.0 3)))
+            (cons 160 ,(doom-blend 'magenta 'orange (/ 1.0 3)))
+            (cons 180 ,(doom-blend 'magenta 'orange (/ 2.0 3)))
             (cons 200 ,(doom-color 'magenta))
-            (cons 220 ,(doom-blend (doom-color 'red) (doom-color 'magenta) (/ 1.0 3)))
-            (cons 240 ,(doom-blend (doom-color 'red) (doom-color 'magenta) (/ 2.0 3)))
+            (cons 220 ,(doom-blend 'red 'magenta (/ 1.0 3)))
+            (cons 240 ,(doom-blend 'red 'magenta (/ 2.0 3)))
             (cons 260 ,(doom-color 'red))
-            (cons 280 ,(doom-blend (doom-color 'grey) (doom-color 'red) (/ 1.0 4)))
-            (cons 300 ,(doom-blend (doom-color 'grey) (doom-color 'red) (/ 2.0 4)))
-            (cons 320 ,(doom-blend (doom-color 'grey) (doom-color 'red) (/ 3.0 4)))
+            (cons 280 ,(doom-blend 'grey 'red (/ 1.0 4)))
+            (cons 300 ,(doom-blend 'grey 'red (/ 2.0 4)))
+            (cons 320 ,(doom-blend 'grey 'red (/ 3.0 4)))
             (cons 340 ,(doom-color 'base5))
             (cons 360 ,(doom-color 'base5))))
     (vc-annotate-very-old-color nil)
-    (vc-annotate-background (doom-color 'base0)))
-  "TODO")
+    (vc-annotate-background (doom-color 'bg))))
 
 
 ;; Library
@@ -1238,8 +1262,7 @@
                     (let (doom--quoted-p)
                       (doom-themes--colors-p (cdr item))))
 
-                   (t
-                    (or (doom-themes--colors-p car)
+                   ((or (doom-themes--colors-p car)
                         (doom-themes--colors-p (cdr-safe item)))))))
 
           ((and (symbolp item)
@@ -1320,6 +1343,7 @@
     (push `(,face-name ,@face-body) doom-themes--faces)))
 
 (defun doom-themes--build-face (face)
+  "TODO"
   (let ((face-name (car face))
         (face-body (cdr face)))
     `(list
@@ -1327,20 +1351,17 @@
       ,(cond ((keywordp (car face-body))
               (let ((real-attrs face-body)
                     defs)
-                (cond ((doom-themes--colors-p real-attrs)
+                (if (doom-themes--colors-p real-attrs)
                        (dolist (cl doom--min-colors `(list ,@(nreverse defs)))
                          (push `(list '((class color) (min-colors ,cl))
                                       (list ,@(doom-themes--colorize real-attrs cl)))
-                               defs)))
-
-                      (t
-                       `(list (list 't (list ,@real-attrs)))))))
+                            defs))
+                  `(list (list 't (list ,@real-attrs))))))
 
              ((memq (car-safe (car face-body)) '(quote backquote \`))
               (car face-body))
 
-             (t
-              (let (all-attrs defs)
+             ((let (all-attrs defs)
                 (dolist (attrs face-body `(list ,@(nreverse defs)))
                   (cond ((eq (car attrs) '&all)
                          (setq all-attrs (append all-attrs (cdr attrs))))
@@ -1358,24 +1379,22 @@
                                   (push `(list '((background ,bg)) (list ,@real-attrs))
                                         defs)))))))))))))
 
-(defun doom-themes--build-var (var)
-  "TODO"
-  `(list ',(car var) ,(cadr var)))
-
-(defun doom-themes-common-faces (&optional extra-faces)
+;;
+(defun doom-themes-prepare-facelist (faces)
   "Return an alist of face definitions for `custom-theme-set-faces'.
 
 Faces in EXTRA-FACES override the default faces."
-  (setq doom-themes--faces nil)
-  (mapc #'doom-themes--add-face (append doom-themes-common-faces extra-faces))
-  (reverse (mapcar #'doom-themes--build-face doom-themes--faces)))
+  (let (doom-themes--faces)
+    (mapc #'doom-themes--add-face faces)
+    (reverse (mapcar #'doom-themes--build-face doom-themes--faces))))
 
-(defun doom-themes-common-variables (&optional extra-vars)
+(defun doom-themes-prepare-varlist (vars)
   "Return an alist of variable definitions for `custom-theme-set-variables'.
 
 Variables in EXTRA-VARS override the default ones."
-  (setq doom-themes--vars nil)
-  (mapcar #'doom-themes--build-var (append doom-themes-common-vars extra-vars)))
+  (let (doom-themes--vars)
+    (cl-loop for (var val) in vars
+             collect `(list ',var ,val))))
 
 (provide 'doom-themes-common)
 ;;; doom-themes-common.el ends here
