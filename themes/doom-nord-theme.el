@@ -22,7 +22,7 @@ legibility."
   :group 'doom-nord-theme
   :type 'boolean)
 
-(defcustom doom-nord-padded-modeline nil
+(defcustom doom-nord-padded-modeline doom-themes-padded-modeline
   "If non-nil, adds a 4px padding to the mode-line. Can be an integer to
 determine the exact padding."
   :group 'doom-nord-theme
@@ -83,8 +83,8 @@ determine the exact padding."
    (variables      (doom-lighten magenta 0.5))
    (numbers        magenta)
    (region         (pcase doom-nord-region-highlight
-                     (`frost teal)
-                     (`snowstorm base7)
+                     ((\` frost) teal)
+                     ((\` snowstorm) base7)
                      (_ base4)))
    (error          red)
    (warning        yellow)
@@ -100,10 +100,6 @@ determine the exact padding."
     (when doom-nord-padded-modeline
       (if (integerp doom-nord-padded-modeline) doom-nord-padded-modeline 4)))
 
-   (region-fg
-    (when (memq doom-nord-region-highlight '(frost snowstorm))
-      bg-alt))
-
    (modeline-fg     nil)
    (modeline-fg-alt base6)
 
@@ -118,9 +114,11 @@ determine the exact padding."
    (modeline-bg-inactive   (doom-darken bg 0.1))
    (modeline-bg-inactive-l `(,(car bg) ,@(cdr base1))))
 
-
   ;; --- extra faces ------------------------
-  (((region &override) :foreground region-fg)
+  (((region &override)
+    :foreground
+    (when (memq doom-nord-light-region-highlight '(frost snowstorm))
+      bg-alt))
 
    ((line-number &override) :foreground (doom-lighten 'base5 0.2))
    ((line-number-current-line &override) :foreground base7)
