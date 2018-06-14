@@ -312,13 +312,13 @@
     (company-tooltip-common                           :foreground highlight :distant-foreground base0 :weight 'bold)
     (company-tooltip-search     :background highlight :foreground bg :distant-foreground fg :weight 'bold)
     (company-tooltip-search-selection :background (doom-darken selection 0.25))
-    (company-tooltip-selection  :background selection :weight 'bold)
+    (company-tooltip-selection  :background region :weight 'bold)
     (company-tooltip-mouse      :background magenta   :foreground bg :distant-foreground fg)
     (company-tooltip-annotation                       :foreground violet)
     (company-scrollbar-bg       :inherit 'tooltip)
     (company-scrollbar-fg       :background highlight)
-    (company-preview                              :foreground comments)
-    (company-preview-common     :background base3 :foreground highlight)
+    (company-preview                              :foreground comments :background bg :weight 'extralight)
+    (company-preview-common     :background base3 :foreground comments :background bg :weight 'extralight)
     (company-preview-search     :inherit 'company-tooltip-search)
     (company-template-field     :inherit 'match)
     (company-box-scrollbar :foreground highlight :background base3)
@@ -326,7 +326,6 @@
     (company-box-selection :inherit 'company-tooltip-selection)
     (company-box-annotation :inherit 'company-tooltip-annotation)
     (company-box-candidate :foreground fg)
-
 
     ;; circe
     (circe-fool :foreground doc-comments)
