@@ -181,9 +181,9 @@
     (message-header-other :foreground comments)
 
     ;; term
-    (term               :foreground fg)
+    (term               :foreground fg :background bg)
     (term-bold          :weight 'bold)
-    (term-color-black   :background base0   :foreground base0)
+    (term-color-black   :background bg   :foreground base0)
     (term-color-red     :background red     :foreground red)
     (term-color-green   :background green   :foreground green)
     (term-color-yellow  :background yellow  :foreground yellow)
