@@ -233,7 +233,10 @@
 
     ;; twitter
     (twitter-divider :underline `(:color ,(doom-blend vertical-bar bg 0.8)))
-
+    ;; wordsmith
+    (wordsmith-noun-face :underline `(:color ,blue))
+    (wordsmith-verb-face :underline `(:color ,green))
+    (wordsmith-default-face :underline `(:color ,fg))
     ;; avy
     (avy-background-face :foreground comments)
     (avy-lead-face :background highlight :foreground bg :distant-foreground fg :weight 'bold)
@@ -481,7 +484,9 @@
 
     ;; flyspell
     (flyspell-incorrect :underline `(:style wave :color ,error) :inherit 'unspecified)
-
+    ;; langtools
+    (langtool-correction-face :foreground green :background (doom-blend green bg 0.3) :slant 'italic :weight 'bold)
+    (langtool-errline :foreground green :background (doom-blend green bg 0.3) :slant 'italic)
     ;; git-commit
     (git-commit-summary :foreground strings)
     (git-commit-overlong-summary :inherit 'error :background base0 :slant 'italic :weight 'bold)
@@ -606,6 +611,12 @@
     ;; highlight-numbers-mode
     (highlight-numbers-number :inherit 'bold :foreground numbers)
 
+    ;; hi
+    (hi-yellow :foreground yellow :background (doom-blend yellow bg 0.3))
+    (hi-blue :foreground blue :background (doom-blend blue bg 0.3))
+    (hi-pink :foreground red :background (doom-blend red bg 0.3))
+    (hi-green :foreground green :background (doom-blend green bg 0.3))
+
     ;; hlinum
     (linum-highlight-face :foreground fg :distant-foreground nil :weight 'normal)
 
@@ -708,7 +719,7 @@
     (doom-neotree-media-file-face :inherit 'doom-neotree-hidden-file-face)
 
     ;; treemacs
-    (treemacs-root-face                :foreground blue :weight 'semi-bold :height 1.4)
+    (treemacs-root-face                :foreground blue :background (doom-blend blue bg 0.3) :weight 'extralight :height 1.4)
     (treemacs-directory-collapsed-face :weight 'light)
     (treemacs-directory-face           :foreground blue :weight 'bold)
     (treemacs-file-face                :foreground fg)
