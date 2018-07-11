@@ -198,6 +198,7 @@
     (window-divider-last-pixel  :inherit 'window-divider)
 
     (internal-border :foreground (doom-darken bg-alt 0.1) :background (doom-darken bg-alt 0.1))
+    (border :foreground fg :background fg)
 
     ;; --- plugin faces -----------------------
     ;; all-the-icons
@@ -1045,7 +1046,7 @@
     ;; (notmuch-crypto-signature-good-key       :foreground aqua-l)
     ;; (notmuch-crypto-signature-unknown        :foreground yellow)
     ;; (notmuch-hello-logo-background           :foreground fg)
-    (notmuch-message-summary-face            :foreground grey :background nil)
+    (notmuch-message-summary-face            :weight 'extralight :font "Iosevka")
     (notmuch-search-count                    :foreground comments)
     (notmuch-search-date                     :foreground numbers :weight 'bold)
     (notmuch-search-flagged-face             :foreground (doom-blend red base4 0.5))
